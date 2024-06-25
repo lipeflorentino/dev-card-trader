@@ -1,15 +1,22 @@
 {
-  "name": "dev-card-trader",
-  "version": "0.0.0",
-  "license": "MIT",
-  "scripts": {},
+  "name": "root",
   "private": true,
-  "dependencies": {},
-  "devDependencies": {
-    "@nx/js": "19.3.1",
-    "nx": "19.3.1"
-  },
   "workspaces": [
     "packages/*"
-  ]
+  ],
+  "scripts": {
+    "prepare": "husky install",
+    "lint": "eslint . --ext .ts,.tsx --fix"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "devDependencies": {
+    "husky": "^9.0.11",
+    "lerna": "^8.1.5",
+    "prettier": "^3.3.2"
+  }
 }
